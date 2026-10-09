@@ -142,6 +142,11 @@ const slides = [
   },
   {
     example: true,
+    html: `<p class="kicker">Sparplan</p><h2>Was aus dem Beitrag wird.</h2>
+      <div class="calc spar" id="spar"></div>`
+  },
+  {
+    example: true,
     html: `<p class="kicker">Diversifikation</p><h2>Erst steigt sie. Dann stürzt Apple.</h2>
       <div class="play" id="divPlay"></div>`
   },
@@ -740,6 +745,73 @@ function renderCalc() {
   draw()
 }
 renderCalc()
+
+function renderSpar() {
+  const root = document.getElementById('spar')
+  if (!root) return
+  root.innerHTML = `
+    <div>
+      <label class="spar-field">Im Monat
+        <span class="spar-row"><input id="sMonthly" type="range" min="50" max="2000" step="50" value="100"><b id="sMonthlyOut">100 €</b></span>
+      </label>
+      <label class="spar-field">Ausgabeaufschlag
+        <span class="spar-row"><input id="sLoad" type="range" min="0" max="6" step="0.1" value="0"><b id="sLoadOut">0 %</b></span>
+      </label>
+      <label class="spar-field">Jahre
+        <span class="spar-row"><input id="sYears" type="range" min="1" max="40" step="1" value="35"><b id="sYearsOut">35 Jahre</b></span>
+      </label>
+      <label class="spar-field">Wertentwicklung
+        <span class="spar-row"><input id="sRate" type="range" min="0" max="15" step="0.1" value="12"><b id="sRateOut">12 %</b></span>
+      </label>
+      <label class="spar-field">Überschussbeteiligung
+        <span class="spar-row"><input id="sSurplus" type="range" min="0" max="6" step="0.1" value="3"><b id="sSurplusOut">3,0 %</b></span>
+      </label>
+    </div>
+    <div>
+      <div class="spar-total"><span>Gesamtwert</span><strong id="sTotal"></strong></div>
+      <div class="spar-bar" aria-hidden="true"><i id="sPaidBar"></i><i id="sGainBar"></i></div>
+      <div class="calc-nums">
+        <div><span>Eingezahlt</span><strong id="sPaid"></strong></div>
+        <div><span>Wertzuwachs</span><strong id="sGain"></strong></div>
+      </div>
+      <p class="src" id="sNote"></p>
+    </div>`
+  const num = (id) => Number(document.getElementById(id).value) || 0
+  const fill = (input) => {
+    const min = Number(input.min)
+    const max = Number(input.max)
+    const pct = max === min ? 0 : ((Number(input.value) - min) / (max - min)) * 100
+    input.style.setProperty('--fill', `${pct}%`)
+  }
+  const de = (n, digits) => n.toLocaleString('de-DE', { minimumFractionDigits: digits, maximumFractionDigits: digits })
+  const draw = () => {
+    const monthly = num('sMonthly')
+    const load = num('sLoad')
+    const invested = monthly / (1 + load / 100)
+    root.querySelectorAll('input[type="range"]').forEach(fill)
+    document.getElementById('sMonthlyOut').textContent = `${de(monthly, 0)} €`
+    document.getElementById('sLoadOut').textContent = `${de(load, 1)} %`
+    document.getElementById('sYearsOut').textContent = `${de(num('sYears'), 0)} Jahre`
+    document.getElementById('sRateOut').textContent = `${de(num('sRate'), 1)} %`
+    document.getElementById('sSurplusOut').textContent = `${de(num('sSurplus'), 1)} %`
+    const rows = projectCalc(invested, num('sRate'), 0, num('sYears'), num('sSurplus'), 0.2)
+    const last = rows[rows.length - 1]
+    const gain = last.value - last.paid
+    const total = Math.max(last.value, 1)
+    document.getElementById('sTotal').textContent = euro0(last.value)
+    document.getElementById('sPaid').textContent = euro0(last.paid)
+    document.getElementById('sGain').textContent = euro0(gain)
+    document.getElementById('sPaidBar').style.width = `${Math.max(0, last.paid / total) * 100}%`
+    document.getElementById('sGainBar').style.width = `${Math.max(0, gain / total) * 100}%`
+    const surplus = num('sSurplus')
+    document.getElementById('sNote').textContent = load
+      ? `Vom Beitrag gehen ${de(load, 1)} % Ausgabeaufschlag ab. Danach die Numbers-Rechnung mit ${de(surplus, 1)} % Überschuss und 0,2 % Fondskosten. Beispiel, keine Zusage.`
+      : `Ausgabeaufschlag 0 %. Dieselbe Numbers-Rechnung mit ${de(surplus, 1)} % Überschuss und 0,2 % Fondskosten. Beispiel, keine Zusage.`
+  }
+  root.querySelectorAll('input').forEach(el => el.addEventListener('input', draw))
+  draw()
+}
+renderSpar()
 
 const fund = document.getElementById('fundName')
 if (fund) {

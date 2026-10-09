@@ -280,6 +280,46 @@ h2 {
 .calc-nums div { background: white; border-radius: 16px; padding: 12px 14px; border: 1px solid var(--line); }
 .calc-nums span { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .calc-nums strong { font-family: var(--serif); font-size: clamp(22px, 2vw, 34px); font-weight: 460; }
+.spar { grid-template-columns: minmax(340px, 1.15fr) minmax(280px, 0.85fr); }
+.spar .calc-nums { grid-template-columns: 1fr 1fr; }
+.spar-field { margin-bottom: 16px; }
+.spar-row { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; margin-top: 8px; }
+.spar-row b { min-width: 7.2ch; font-family: var(--serif); font-weight: 460; font-size: 26px; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.spar input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(var(--wine), var(--wine)) 0 / var(--fill, 0%) 100% no-repeat, var(--cream-2);
+  cursor: pointer;
+}
+.spar input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--wine);
+  box-shadow: 0 1px 4px rgba(27, 20, 18, 0.25);
+}
+.spar input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--wine);
+}
+.spar-total span { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.spar-total strong { font-family: var(--serif); font-size: clamp(40px, 5vw, 64px); font-weight: 460; color: var(--wine); }
+.spar-bar { display: flex; height: 28px; border-radius: 999px; overflow: hidden; margin: 14px 0; background: var(--line); }
+.spar-bar i { display: block; height: 100%; }
+#sPaidBar { background: var(--wine); }
+#sGainBar { background: var(--gold); }
 .calc-costs { margin-top: 10px; }
 .calc-costs em { display: block; margin-top: 4px; font-style: normal; font-size: 13px; line-height: 1.3; color: var(--muted); }
 
@@ -429,6 +469,7 @@ th { font-weight: 500; color: var(--muted); font-size: 13px; letter-spacing: 0.0
 
 @media (max-width: 800px) {
   .grid.two, .grid.three, .grid.four, .qa, .pyras, .py-compare, .house-cols, .calc, .calc-nums, .pair, .side { grid-template-columns: 1fr; }
+  .spar-row b { font-size: 22px; }
   .play-bar { flex-wrap: wrap; }
   .pair img, .side img, .wide { height: 200px; }
   .card.shot img { height: 160px; }
