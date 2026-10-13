@@ -162,18 +162,18 @@ const slides = [
   {
     example: true,
     id: 'wish',
-    html: `<p class="kicker">Vorabschluss</p><h2>260 € im Monat. 38 Jahre.</h2>
-      <p class="lead">Eingezahlt sind dann genau 118.560 €. Ab welcher Summe sagst du: ich werde Kunde?</p>
+    html: `<p class="kicker">Vorabschluss</p><h2>100 € im Monat. 40 Jahre.</h2>
+      <p class="lead">Eingezahlt sind dann genau 48.000 €. Ab welcher Summe sagst du: ich werde Kunde?</p>
       <div class="wish">
         <input id="wishInput" inputmode="numeric" placeholder="Deine Summe in €" aria-label="Deine Summe" />
         <button id="wishBtn" type="button">Merken</button>
       </div>
-      <div class="paid"><div class="num">118.560 €</div><p class="src" id="wishOut">Deine Zahl erscheint hier, sobald du sie nennst. Die Beispielwerte aus dem Vorschlag stehen auf der Kostenfolie.</p></div>`
+      <div class="paid"><div class="num">48.000 €</div><p class="src" id="wishOut">Deine Zahl erscheint hier, sobald du sie nennst. Eine Beispielrendite zeigen wir erst, wenn du den Prozentsatz freigibst.</p></div>`
   },
   {
     dark: true,
     html: `<p class="kicker">Fonds-Service-Center</p><h2>Jetzt den Beispiel-Fonds aussuchen.</h2>
-      <p class="lead">Im Vorschlag vom 27.8.2026 liegt der Beitrag so: 40 % iShares Core MSCI World, 20 % Xtrackers Artificial Intelligence Big Data, 40 % Franklin Technology Fund A.</p>
+      <p class="lead">Im Fonds-Service-Center von ERGO denselben Fonds öffnen, den ihr gerade besprecht. Danach kommt der Kostenrechner mit genau diesem Beitrag.</p>
       <p class="actions"><a class="go" id="fscLink" href="https://www.ergo.de/de/Produkte/Rentenversicherung/Private-Rentenversicherung/FSC" target="_blank" rel="noopener">Fonds-Service-Center öffnen</a></p>
       <label class="fund">Beispiel-Fonds
         <input id="fundName" placeholder="Name aus dem Fonds-Service-Center" />
@@ -207,10 +207,10 @@ const slides = [
   {
     html: `<p class="kicker">Katalog</p><h2>Vier Fragen. Vier Antworten.</h2>
       <div class="qa">
-        <details><summary>Pause?</summary><p>Der Beitrag lässt sich herabsetzen oder der Vertrag beitragsfrei stellen. Die Effektivkosten gelten dann nicht mehr in der genannten Höhe.</p></details>
-        <details><summary>Erhöhung?</summary><p>Eine jährliche automatische Anpassung ist in diesem Vorschlag nicht dabei. Eine Zuzahlung geht extra, mit eigenen Kosten.</p></details>
-        <details><summary>Auszahlung?</summary><p>Ab dem 1.11.2064 Kapital oder lebenslange Rente. Früher geht es ab dem 1.11.2059. Die Verfügungsphase läuft bis zum 1.11.2074. Garantierter Rentenfaktor: 24,41 € Rente im Monat je 10.000 € Guthaben.</p></details>
-        <details><summary>Einmalzuzahlung?</summary><p>Je 100 € Zuzahlung: 4,00 € Abschluss- und Vertriebskosten und 1,50 € Verwaltungskosten, einmalig. Dazu 0,04 € im Monat je 100 € des Guthabens aus dieser Zuzahlung.</p></details>
+        <details><summary>Pause?</summary><p>Der Beitrag kann ruhen, wenn ein Jahr eng wird. Du steigst nicht aus dem Vertrag aus.</p></details>
+        <details><summary>Erhöhung?</summary><p>Wenn das Gehalt wächst, wächst der Beitrag mit. Einmal im Gespräch festlegen.</p></details>
+        <details><summary>Auszahlung?</summary><p>Zum Laufzeitende als Kapital oder als Rente. Den Weg wählst du dann, nicht heute auf ewig.</p></details>
+        <details><summary>Einmalzuzahlung?</summary><p>Bonus, Erbe, Steuererstattung: extra einzahlen, ohne den Monatsplan zu zerreißen.</p></details>
       </div>`
   },
   {
@@ -226,7 +226,7 @@ const slides = [
         <div class="card"><div class="num">917</div><p>Mio. € Konzernergebnis</p></div>
         <div class="card"><div class="num">28k</div><p>angestellte Mitarbeiter, dazu 8.276 Vermittler</p></div>
       </div>
-      <p class="src">Quelle: ergo.com, Zahlen, Daten und Fakten, Geschäftsjahr 2025 (Umsatz 2024: 20,8 Mrd. €). Eine Insolvenzquote in Prozent veröffentlicht ERGO dort nicht. Die ERGO Vorsorge Lebensversicherung AG gehört dem Sicherungsfonds bei der Protektor Lebensversicherungs-AG an. Die Aufsicht kann die garantierten Leistungen um höchstens 5 % kürzen. Munich Re ist alleinige Eigentümerin der ERGO Group AG (Geschäftsbericht ERGO Group AG 2024).</p>`
+      <p class="src">Quelle: ergo.com, Zahlen, Daten und Fakten, Geschäftsjahr 2025 (Umsatz 2024: 20,8 Mrd. €). Eine Insolvenzquote in Prozent veröffentlicht ERGO dort nicht. Deutsche Lebensversicherer stehen zusätzlich unter dem Schutzschirm Protektor. Munich Re ist alleinige Eigentümerin der ERGO Group AG (Geschäftsbericht ERGO Group AG 2024).</p>`
   },
   {
     html: `<div class="side">
@@ -252,7 +252,7 @@ const slides = [
       <img class="wide" src="${base}topf.jpg" alt="Aus einer Kanne fließt etwas in eine Tasse">
       <div class="grid two caps">
         <div><b>Dein Fondsguthaben</b><p>Die Anteile entwickeln sich mit den Fonds, die du gewählt hast.</p></div>
-        <div><b>Überschüsse</b><p>In der Rentenphase steigt die Rente nach dem Stand 2026 um 1,90 % im Jahr zur Vorjahresrente. Die künftige Höhe ist nicht garantiert und kann auch null sein.</p></div>
+        <div><b>Überschüsse</b><p>Was über das Kalkulierte hinaus entsteht, kann an den Vertrag zurückfließen. Die Höhe steht vorher nicht fest.</p></div>
       </div>`
   },
   {
@@ -270,11 +270,11 @@ const slides = [
     html: `<p class="kicker">ERGO Rente Chance</p><h2>Fonds wechseln, ohne jedes Mal zu zahlen.</h2>
       <img class="wide" src="${base}wechsel.jpg" alt="Zwei Hände tauschen zwei Mappen">
       <div class="grid three">
-        <div class="card"><b>12×</b><p>Fondswechsel im Kalenderjahr ohne Gebühr. Ab dem 13. Wechsel 25 € je Wechsel.</p></div>
-        <div class="card"><b>1×</b><p>im Jahr Rebalancing auf die zuletzt gewählte Beitragsmischung. In diesem Vorschlag vereinbart.</p></div>
-        <div class="card"><b>5 J.</b><p>Ablaufmanagement: in den letzten fünf Jahren vor dem 1.11.2064 Umschichtung in einen ruhigeren Fonds. Vereinbart.</p></div>
+        <div class="card"><b>12×</b><p>kostenlose Fondswechsel im Jahr, für neue Beiträge und für das Guthaben.</p></div>
+        <div class="card"><b>20</b><p>Fonds gleichzeitig, darunter ETFs.</p></div>
+        <div class="card"><b>1×</b><p>im Jahr optional zurück auf deine ursprüngliche Mischung.</p></div>
       </div>
-      <p class="src">Vorschlag ERGO Rente Chance, Tarif FIR525031Z, ERGO Vorsorge Lebensversicherung AG, 27.8.2026.</p>`
+      <p class="src">Produktinformation ERGO Rente Chance. Tarif bestätigen, bevor du das im Gespräch als fest verkaufst.</p>`
   },
   {
     html: `<div class="side">
@@ -425,13 +425,13 @@ function bindWish() {
   const saved = sessionStorage.getItem('wish')
   if (saved) {
     input.value = saved
-    out.textContent = `Du sagst: ab ${Number(saved).toLocaleString('de-DE')} € werde ich Kunde. Eingezahlt sind 118.560 €.`
+    out.textContent = `Du sagst: ab ${Number(saved).toLocaleString('de-DE')} € werde ich Kunde. Eingezahlt sind 48.000 €.`
   }
   btn.onclick = () => {
     const v = Number(String(input.value).replace(/\./g, '').replace(',', '.'))
     if (!v) return
     sessionStorage.setItem('wish', String(v))
-    out.textContent = `Du sagst: ab ${v.toLocaleString('de-DE')} € werde ich Kunde. Eingezahlt sind 118.560 €.`
+    out.textContent = `Du sagst: ab ${v.toLocaleString('de-DE')} € werde ich Kunde. Eingezahlt sind 48.000 €.`
   }
 }
 bindWish()
@@ -788,17 +788,16 @@ function projectCalc(monthly, ratePct, once, years, surplusPct, feePct, stripCos
     const Fprev = F
     B = y === 1 ? I1 * 12 + I3 : Bprev + I1 * 12
     if (!stripCosts && y <= 5) {
-      E = I1 * 12 * 0.175
+      E = (I1 * 12 * 0.175) - ((35 - I4) / 5 * I1 * 0.3)
       if (y === 1) E += I3 / 100 * 4
     } else E = 0
     F = stripCosts ? 0 : 0.06 * I1 * 12 + 12
-    if (!stripCosts && y === 1) F += I3 / 100 * 1.5
+    if (!stripCosts && y === 1) F += I3 / 100 * 4
     const base = y === 1
       ? B + B * I5 - E - F
       : (B - Bprev - Eprev - Fprev) + ((B - Bprev + Cprev - Eprev - Fprev) * I5) + Cprev
     const grown = base * factor
-    const cap = (I1 * 12 * horizon + I3) * 1.5
-    C = stripCosts ? grown : grown - Math.min(grown, cap) * 0.0036
+    C = stripCosts ? grown : grown - 0.03 * grown / 100
     rows.push({ y, paid: B, value: C, diff: C - B, sales: E, admin: F })
   }
   return rows
@@ -837,16 +836,12 @@ function renderCalc() {
   if (!root) return
   root.innerHTML = `
     <div>
-      <label>Im Monat<input id="cMonthly" type="number" min="25" step="5" value="260"></label>
-      <label>Jahre<input id="cYears" type="number" min="1" max="40" value="38"></label>
-      <label>Beispiel %
-        <select id="cRate">
-          <option value="0">0 %</option>
-          <option value="3">3 %</option>
-          <option value="6" selected>6 %</option>
-          <option value="9">9 %</option>
-        </select>
-      </label>
+      <label>Im Monat<input id="cMonthly" type="number" min="25" step="5" value="100"></label>
+      <label>Jahre<input id="cYears" type="number" min="1" max="40" value="35"></label>
+      <label>Rendite %<input id="cRate" type="number" min="0" max="15" step="0.5" value="12"></label>
+      <label>Überschuss %<input id="cSurplus" type="number" min="0" max="6" step="0.5" value="3"></label>
+      <label>Fondskosten %<input id="cFee" type="number" min="0" max="2" step="0.05" value="0.2"></label>
+      <label>Einmalig €<input id="cOnce" type="number" min="0" step="100" value="0"></label>
     </div>
     <div>
       <div class="calc-nums">
@@ -856,70 +851,51 @@ function renderCalc() {
       </div>
       <div class="calc-nums calc-costs">
         <div><span>Gesamtkosten</span><strong id="cCost"></strong><em id="cCostSub"></em></div>
-        <div class="is-point"><span>Am Guthaben</span><strong id="cShare"></strong><em id="cShareSub"></em></div>
+        <div><span>Vom Beitrag</span><strong id="cShare"></strong><em id="cShareSub"></em></div>
         <div><span>Effektive Kosten</span><strong id="cEff"></strong><em id="cEffSub"></em></div>
       </div>
-      <div class="cost-compare" aria-hidden="true"><i id="cCostBar"></i></div>
       <div class="calc-table-wrap">
         <table>
           <thead>
-            <tr><th>Jahr</th><th>Eingezahlt</th><th>Vertrieb</th><th>Verwaltung</th></tr>
+            <tr><th>Jahr</th><th>Eingezahlt</th><th>Vertrieb</th><th>Verwaltung</th><th>Guthaben</th><th>Differenz</th></tr>
           </thead>
           <tbody id="cRows"></tbody>
         </table>
       </div>
       <p class="src" id="cNote"></p>
     </div>`
-  const offer = {
-    0: { capital: 109316, pension: 318.72 },
-    3: { capital: 199914, pension: 582.87 },
-    6: { capital: 398146, pension: 1160.84 },
-    9: { capital: 841431, pension: 2453.28 }
-  }
   const num = (id) => Number(document.getElementById(id).value) || 0
   const draw = () => {
-    const monthly = num('cMonthly')
-    const years = Math.max(1, Math.min(40, Math.round(num('cYears'))))
-    const rate = Number(document.getElementById('cRate').value)
-    const annual = monthly * 12
-    const paid = annual * years
-    const salesYear = annual * 0.175
-    const salesTotal = salesYear * Math.min(5, years)
-    const adminYear = annual * 0.06 + 12
-    const adminTotal = adminYear * years
-    const listed = salesTotal + adminTotal
-    const contract = monthly === 260 && years === 38
-    const quoted = contract ? offer[rate] : null
-    document.getElementById('cPaid').textContent = euro0(paid)
-    document.getElementById('cValue').textContent = quoted ? euro0(quoted.capital) : '—'
-    document.getElementById('cDiff').textContent = quoted ? euro0(quoted.capital - paid) : '—'
-    const share = quoted ? listed / quoted.capital : 0
+    const args = [num('cMonthly'), num('cRate'), num('cOnce'), num('cYears'), num('cSurplus'), num('cFee')]
+    const rows = projectCalc(...args)
+    const grossRows = projectCalc(...args, true)
+    const last = rows[rows.length - 1]
+    const listed = rows.reduce((sum, r) => sum + r.sales + r.admin, 0)
+    const netReturn = customerReturn(rows)
+    const grossReturn = customerReturn(grossRows)
+    document.getElementById('cPaid').textContent = euro0(last.paid)
+    document.getElementById('cValue').textContent = euro0(last.value)
+    document.getElementById('cDiff').textContent = euro0(last.diff)
     document.getElementById('cCost').textContent = euro2(listed)
     document.getElementById('cCostSub').textContent = 'Abschluss, Vertrieb, Verwaltung'
-    document.getElementById('cShare').textContent = quoted ? pct(share, 2) : '—'
-    document.getElementById('cShareSub').textContent = quoted
-      ? `von ${euro0(quoted.capital)} am 1.11.2064`
-      : 'nur für 260 € und 38 Jahre im Vorschlag'
-    document.getElementById('cCostBar').style.width = `${quoted ? Math.min(100, Math.max(share * 100, 0.8)) : 0}%`
-    document.getElementById('cEff').textContent = '1,25 %'
-    document.getElementById('cEffSub').textContent = contract
-      ? 'Minderung der Wertentwicklung laut Vorschlag'
-      : '1,25 % gelten für 260 € und 38 Jahre'
-    document.getElementById('cRows').innerHTML = Array.from({ length: years }, (_, i) => {
-      const y = i + 1
-      const sales = y <= 5 ? salesYear : 0
-      return `
-      <tr class="${y <= 5 ? 'cost-years' : ''}">
-        <td>${y}</td>
-        <td>${euro2(annual * y)}</td>
-        <td>${euro2(sales)}</td>
-        <td>${euro2(adminYear)}</td>
-      </tr>`
-    }).join('')
-    const pension = quoted ? ` Bei ${rate} % nennt der Vorschlag ${euro0(quoted.capital)} Kapital oder ${euro2(quoted.pension)} Rente im Monat.` : ''
-    document.getElementById('cNote').textContent = contract
-      ? `Abschluss- und Vertriebskosten im Vorschlag vom 27.8.2026: 2.730,00 € insgesamt. Das sind fünfmal 17,5 % eines Jahresbeitrags von 3.120 €, in der Tabelle auf die Jahre 1 bis 5 gelegt. Verwaltung 199,20 € jedes Jahr bis zum 31.10.2064, das sind 6 % des Jahresbeitrags plus 12 € aus dem Fondsguthaben. Zusätzlich 0,03 € im Monat je 100 € Fondsguthaben, nicht auf den Teil über 150 % der vereinbarten Beiträge. Effektivkosten 1,25 %.${pension} Unverbindliche Beispielrechnung, keine Zusage.`
-      : `Für diesen Stand: Abschluss und Vertrieb ${euro2(salesTotal)}, Verwaltung ${euro2(adminYear)} im Jahr. Der Vorschlag nennt 2.730,00 € und 199,20 € nur für 260 € über 38 Jahre. Effektivkosten 1,25 % gelten für diesen Vorschlag.`
+    document.getElementById('cShare').textContent = pct(last.paid ? listed / last.paid : 0, 1)
+    document.getElementById('cShareSub').textContent = `von ${euro0(last.paid)} Beitrag`
+    document.getElementById('cEff').textContent = pct(grossReturn - netReturn, 2)
+    document.getElementById('cEffSub').textContent = `${pct(netReturn, 2)} statt ${pct(grossReturn, 2)} im Jahr`
+    const cross = rows.find(r => r.diff >= 0)
+    document.getElementById('cRows').innerHTML = rows.map(r => `
+      <tr class="${r.y <= 5 ? 'cost-years' : ''}">
+        <td>${r.y}</td>
+        <td>${euro2(r.paid)}</td>
+        <td>${euro2(r.sales)}</td>
+        <td>${euro2(r.admin)}</td>
+        <td>${euro2(r.value)}</td>
+        <td>${euro2(r.diff)}</td>
+      </tr>`).join('')
+    document.getElementById('cNote').textContent = (cross
+      ? `Das Guthaben liegt ab Jahr ${cross.y} über dem Eingezahlten. `
+      : 'In diesen Jahren bleibt das Guthaben unter dem Eingezahlten. ')
+      + 'Die markierten Jahre 1 bis 5 tragen Vertriebskosten, danach bleibt die Verwaltung. Die Gesamtkosten sind diese Zeilen zusammen, gesetzt gegen den Beitrag. Die effektiven Kosten sind die Rendite, die dadurch pro Jahr fehlt. Dieselbe Rechnung wie in der Numbers-Datei.'
   }
   root.querySelectorAll('input').forEach(el => el.addEventListener('input', draw))
   draw()
@@ -932,16 +908,19 @@ function renderSpar() {
   root.innerHTML = `
     <div>
       <label class="spar-field">Im Monat
-        <span class="spar-row"><input id="sMonthly" type="range" min="50" max="2000" step="10" value="260"><b id="sMonthlyOut">260 €</b></span>
+        <span class="spar-row"><input id="sMonthly" type="range" min="50" max="2000" step="50" value="100"><b id="sMonthlyOut">100 €</b></span>
       </label>
       <label class="spar-field">Ausgabeaufschlag
         <span class="spar-row"><input id="sLoad" type="range" min="0" max="6" step="0.1" value="0"><b id="sLoadOut">0 %</b></span>
       </label>
       <label class="spar-field">Jahre
-        <span class="spar-row"><input id="sYears" type="range" min="1" max="40" step="1" value="38"><b id="sYearsOut">38 Jahre</b></span>
+        <span class="spar-row"><input id="sYears" type="range" min="1" max="40" step="1" value="35"><b id="sYearsOut">35 Jahre</b></span>
       </label>
       <label class="spar-field">Wertentwicklung
-        <span class="spar-row"><input id="sRate" type="range" min="0" max="9" step="3" value="6"><b id="sRateOut">6 %</b></span>
+        <span class="spar-row"><input id="sRate" type="range" min="0" max="15" step="0.1" value="12"><b id="sRateOut">12 %</b></span>
+      </label>
+      <label class="spar-field">Überschussbeteiligung
+        <span class="spar-row"><input id="sSurplus" type="range" min="0" max="6" step="0.1" value="3"><b id="sSurplusOut">3,0 %</b></span>
       </label>
     </div>
     <div>
@@ -964,27 +943,26 @@ function renderSpar() {
   const draw = () => {
     const monthly = num('sMonthly')
     const load = num('sLoad')
+    const invested = monthly / (1 + load / 100)
     root.querySelectorAll('input[type="range"]').forEach(fill)
-    const years = num('sYears')
-    const rate = num('sRate')
     document.getElementById('sMonthlyOut').textContent = `${de(monthly, 0)} €`
     document.getElementById('sLoadOut').textContent = `${de(load, 1)} %`
-    document.getElementById('sYearsOut').textContent = `${de(years, 0)} Jahre`
-    document.getElementById('sRateOut').textContent = `${de(rate, 0)} %`
-    const quote = { 0: 109316, 3: 199914, 6: 398146, 9: 841431 }[rate]
-    const onContract = monthly === 260 && years === 38 && load === 0 && quote
-    const paid = monthly * 12 * years
-    const value = onContract ? quote : paid
-    const gain = value - paid
-    const total = Math.max(value, 1)
-    document.getElementById('sTotal').textContent = onContract ? euro0(value) : '—'
-    document.getElementById('sPaid').textContent = euro0(paid)
-    document.getElementById('sGain').textContent = onContract ? euro0(gain) : '—'
-    document.getElementById('sPaidBar').style.width = `${onContract ? Math.max(0, paid / total) * 100 : 100}%`
-    document.getElementById('sGainBar').style.width = `${onContract ? Math.max(0, gain / total) * 100 : 0}%`
-    document.getElementById('sNote').textContent = onContract
-      ? `Unverbindliche Kapitalabfindung aus dem Vorschlag vom 27.8.2026 bei ${de(rate, 0)} % im Jahr, inklusive Überschussbeteiligung. Eingezahlt 118.560 €. Keine Zusage.`
-      : 'Der Vorschlag rechnet 260 € im Monat, 38 Jahre, ohne Ausgabeaufschlag, bei 0, 3, 6 oder 9 %. Andere Stände stehen dort nicht.'
+    document.getElementById('sYearsOut').textContent = `${de(num('sYears'), 0)} Jahre`
+    document.getElementById('sRateOut').textContent = `${de(num('sRate'), 1)} %`
+    document.getElementById('sSurplusOut').textContent = `${de(num('sSurplus'), 1)} %`
+    const rows = projectCalc(invested, num('sRate'), 0, num('sYears'), num('sSurplus'), 0.2)
+    const last = rows[rows.length - 1]
+    const gain = last.value - last.paid
+    const total = Math.max(last.value, 1)
+    document.getElementById('sTotal').textContent = euro0(last.value)
+    document.getElementById('sPaid').textContent = euro0(last.paid)
+    document.getElementById('sGain').textContent = euro0(gain)
+    document.getElementById('sPaidBar').style.width = `${Math.max(0, last.paid / total) * 100}%`
+    document.getElementById('sGainBar').style.width = `${Math.max(0, gain / total) * 100}%`
+    const surplus = num('sSurplus')
+    document.getElementById('sNote').textContent = load
+      ? `Vom Beitrag gehen ${de(load, 1)} % Ausgabeaufschlag ab. Danach die Numbers-Rechnung mit ${de(surplus, 1)} % Überschuss und 0,2 % Fondskosten. Beispiel, keine Zusage.`
+      : `Ausgabeaufschlag 0 %. Dieselbe Numbers-Rechnung mit ${de(surplus, 1)} % Überschuss und 0,2 % Fondskosten. Beispiel, keine Zusage.`
   }
   root.querySelectorAll('input').forEach(el => el.addEventListener('input', draw))
   draw()
@@ -993,6 +971,6 @@ renderSpar()
 
 const fund = document.getElementById('fundName')
 if (fund) {
-  fund.value = sessionStorage.getItem('fund') || 'iShares Core MSCI World 40 %, Xtrackers AI Big Data 20 %, Franklin Technology A 40 %'
+  fund.value = sessionStorage.getItem('fund') || ''
   fund.addEventListener('input', () => sessionStorage.setItem('fund', fund.value))
 }
