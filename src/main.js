@@ -335,23 +335,46 @@ slides.forEach((s, i) => {
     el.style.setProperty('--shot', url)
   }
   el.dataset.i = String(i)
-  el.innerHTML = `<div class="inner">${s.html}</div>` + (s.example ? `<p class="note">Beispiel, keine Zusage.</p>` : '')
+  el.innerHTML = `<div class="inner">${s.html}</div>`
   deck.appendChild(el)
 })
 app.appendChild(deck)
 
 const chrome = document.createElement('div')
 chrome.className = 'chrome'
+const chapters = []
+slides.forEach((s, i) => {
+  if (s.chapter && !chapters.some(c => c.name === s.chapter)) chapters.push({ name: s.chapter, index: i })
+})
 chrome.innerHTML = `
-  <div class="top"><span id="chap">Vorsorge</span></div>
-  <div class="bottom">
-    <span class="count" id="count">01 / ${String(slides.length).padStart(2, '0')}</span>
-    <div class="navbtns">
-      <button type="button" id="prev" aria-label="Zurück">←</button>
-      <button type="button" id="next" aria-label="Weiter">→</button>
+  <div class="top">
+    <span id="chap">Vorsorge</span>
+    <div class="chrome-right">
+      <span class="count" id="count">01  /  ${String(slides.length).padStart(2, '0')}</span>
+      <div class="brand" aria-label="ERGO">ERGO</div>
     </div>
-  </div>`
+  </div>
+  <nav class="progress" aria-label="Kapitel">
+    <div class="bar"><i id="fill"></i></div>
+    <div class="ticks" id="ticks"></div>
+  </nav>
+  <button class="nav-btn prev" id="prev" type="button" aria-label="Zurück">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.4"/></svg>
+  </button>
+  <button class="nav-btn next" id="next" type="button" aria-label="Weiter">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.4"/></svg>
+  </button>`
 app.appendChild(chrome)
+const ticks = document.getElementById('ticks')
+chapters.forEach((c) => {
+  const b = document.createElement('button')
+  b.type = 'button'
+  b.textContent = c.name
+  b.dataset.chapter = c.name
+  b.dataset.index = String(c.index)
+  b.addEventListener('click', () => show(c.index))
+  ticks.appendChild(b)
+})
 
 let index = 0
 const nodes = [...deck.children]
@@ -374,10 +397,20 @@ function show(next) {
   }
   el.classList.add('is-on')
   gsap.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' })
-  document.getElementById('count').textContent = `${String(n + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`
-  document.getElementById('chap').textContent = chapterOf(n)
-  document.body.style.background = slides[n].dark || slides[n].photo ? '#140d0f' : '#f3eee6'
-  chrome.style.color = slides[n].dark || slides[n].photo ? '#f3eee6' : '#1b1412'
+  const chapter = chapterOf(n)
+  document.getElementById('count').textContent = `${String(n + 1).padStart(2, '0')}  /  ${String(slides.length).padStart(2, '0')}`
+  document.getElementById('chap').textContent = chapter
+  document.getElementById('fill').style.width = `${((n + 1) / slides.length) * 100}%`
+  document.querySelectorAll('.ticks button').forEach((b) => {
+    b.classList.toggle('active', b.dataset.chapter === chapter)
+  })
+  document.getElementById('prev').disabled = n === 0
+  document.getElementById('next').disabled = n === slides.length - 1
+  const dark = !!slides[n].dark
+  const photo = !!slides[n].photo
+  document.body.style.background = dark || photo ? '#140d0f' : '#f3eee6'
+  chrome.classList.toggle('is-dark', dark)
+  chrome.classList.toggle('is-photo', photo)
 }
 
 show(0)
@@ -398,7 +431,7 @@ window.addEventListener('keydown', (e) => {
 
 let wheelLock = false
 window.addEventListener('wheel', (e) => {
-  if (e.target.closest('input, textarea, .calc, .play')) return
+  if (e.target.closest('input, textarea, .calc, .play, .progress, .nav-btn')) return
   if (wheelLock || Math.abs(e.deltaY) < 20) return
   wheelLock = true
   show(index + (e.deltaY > 0 ? 1 : -1))
@@ -851,7 +884,7 @@ function renderCalc() {
       </div>
       <div class="calc-nums calc-costs">
         <div><span>Gesamtkosten</span><strong id="cCost"></strong><em id="cCostSub"></em></div>
-        <div><span>Vom Beitrag</span><strong id="cShare"></strong><em id="cShareSub"></em></div>
+        <div><span>Am Guthaben</span><strong id="cShare"></strong><em id="cShareSub"></em></div>
         <div><span>Effektive Kosten</span><strong id="cEff"></strong><em id="cEffSub"></em></div>
       </div>
       <div class="calc-table-wrap">
@@ -878,13 +911,13 @@ function renderCalc() {
     document.getElementById('cDiff').textContent = euro0(last.diff)
     document.getElementById('cCost').textContent = euro2(listed)
     document.getElementById('cCostSub').textContent = 'Abschluss, Vertrieb, Verwaltung'
-    document.getElementById('cShare').textContent = pct(last.paid ? listed / last.paid : 0, 1)
-    document.getElementById('cShareSub').textContent = `von ${euro0(last.paid)} Beitrag`
+    document.getElementById('cShare').textContent = pct(last.value ? listed / last.value : 0, 2)
+    document.getElementById('cShareSub').textContent = `von ${euro0(last.value)} Endguthaben`
     document.getElementById('cEff').textContent = pct(grossReturn - netReturn, 2)
     document.getElementById('cEffSub').textContent = `${pct(netReturn, 2)} statt ${pct(grossReturn, 2)} im Jahr`
-    const cross = rows.find(r => r.diff >= 0)
+    const cross = rows.find(r => Math.round(r.diff * 100) >= 0)
     document.getElementById('cRows').innerHTML = rows.map(r => `
-      <tr class="${r.y <= 5 ? 'cost-years' : ''}">
+      <tr class="${!cross || r.y < cross.y ? 'cost-years' : ''}">
         <td>${r.y}</td>
         <td>${euro2(r.paid)}</td>
         <td>${euro2(r.sales)}</td>
@@ -893,9 +926,9 @@ function renderCalc() {
         <td>${euro2(r.diff)}</td>
       </tr>`).join('')
     document.getElementById('cNote').textContent = (cross
-      ? `Das Guthaben liegt ab Jahr ${cross.y} über dem Eingezahlten. `
-      : 'In diesen Jahren bleibt das Guthaben unter dem Eingezahlten. ')
-      + 'Die markierten Jahre 1 bis 5 tragen Vertriebskosten, danach bleibt die Verwaltung. Die Gesamtkosten sind diese Zeilen zusammen, gesetzt gegen den Beitrag. Die effektiven Kosten sind die Rendite, die dadurch pro Jahr fehlt. Dieselbe Rechnung wie in der Numbers-Datei.'
+      ? `Das Guthaben liegt ab Jahr ${cross.y} nicht mehr unter dem Eingezahlten. Markiert sind nur die Jahre davor. `
+      : 'In diesen Jahren bleibt das Guthaben unter dem Eingezahlten. Deshalb bleiben die Zeilen markiert. ')
+      + 'Die Jahre 1 bis 5 tragen Vertriebskosten, danach bleibt die Verwaltung. Die Gesamtkosten sind diese Zeilen zusammen, gesetzt gegen das Endguthaben. Die effektiven Kosten sind die Rendite, die dadurch pro Jahr fehlt. Dieselbe Rechnung wie in der Numbers-Datei.'
   }
   root.querySelectorAll('input').forEach(el => el.addEventListener('input', draw))
   draw()

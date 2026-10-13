@@ -27,7 +27,7 @@ body {
   inset: 0;
   display: flex;
   flex-direction: column;
-  padding: clamp(72px, 9vh, 108px) clamp(28px, 6vw, 96px) 88px;
+  padding: clamp(72px, 9vh, 108px) clamp(84px, 7vw, 120px) 108px;
   opacity: 0;
   pointer-events: none;
   background:
@@ -439,14 +439,13 @@ h2 {
 }
 .paid { margin-top: 22px; }
 .paid .num { color: var(--wine); }
-.note {
-  position: absolute;
-  left: clamp(28px, 6vw, 96px);
-  right: 120px;
-  bottom: 28px;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  color: var(--muted);
+.brand {
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: 42px;
+  line-height: 0.9;
+  color: #ee003b;
 }
 
 .qa { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
@@ -467,24 +466,96 @@ th { font-weight: 500; color: var(--muted); font-size: 13px; letter-spacing: 0.0
 
 .chrome {
   position: fixed; z-index: 5; inset: 0; pointer-events: none;
+  color: var(--ink);
 }
-.top, .bottom {
-  position: absolute; left: 0; right: 0;
+.chrome.is-dark, .chrome.is-photo { color: var(--cream); }
+.top {
+  position: absolute; left: 0; right: 0; top: 0;
   display: flex; justify-content: space-between; align-items: center;
   padding: 22px clamp(28px, 6vw, 96px);
   font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
   pointer-events: none;
 }
-.bottom { bottom: 0; top: auto; }
-.navbtns { pointer-events: auto; display: flex; gap: 8px; }
-.navbtns button {
-  width: 44px; height: 44px; border-radius: 50%;
-  border: 1px solid var(--line);
-  background: rgba(243, 238, 230, 0.8);
-  cursor: pointer;
-  font-size: 18px;
+.chrome-right { display: flex; align-items: center; gap: 22px; }
+.count { font-variant-numeric: tabular-nums; letter-spacing: 0.14em; }
+.progress {
+  position: absolute;
+  left: clamp(28px, 6vw, 96px);
+  right: clamp(28px, 6vw, 96px);
+  bottom: 22px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: auto;
 }
-.count { font-variant-numeric: tabular-nums; }
+.bar {
+  height: 1px;
+  background: color-mix(in srgb, currentColor 28%, transparent);
+  position: relative;
+  border-radius: 99px;
+  overflow: hidden;
+}
+.bar > i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: var(--gold);
+}
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  overflow-x: auto;
+}
+.ticks button {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  opacity: 0.55;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 4px 2px 8px;
+  position: relative;
+  white-space: nowrap;
+  flex: 1;
+  text-align: center;
+}
+.ticks button:hover, .ticks button.active { opacity: 1; }
+.ticks button.active { font-weight: 600; }
+.ticks button.active::after {
+  content: '';
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--gold);
+}
+.nav-btn {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  z-index: 6;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background: rgba(243, 238, 230, 0.82);
+  color: inherit;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.chrome.is-dark .nav-btn { background: rgba(20, 13, 15, 0.55); }
+.nav-btn.prev { left: 18px; }
+.nav-btn.next { right: 18px; }
+.nav-btn:disabled { opacity: 0.28; cursor: default; }
 
 @media (max-width: 800px) {
   .grid.two, .grid.three, .grid.four, .qa, .pyras, .py-compare, .house-cols, .calc, .calc-nums, .pair, .side, .ways, .carry { grid-template-columns: 1fr; }
@@ -510,7 +581,7 @@ th { font-weight: 500; color: var(--muted); font-size: 13px; letter-spacing: 0.0
     margin-bottom: 16px;
   }
   .slide.photo h1 { font-size: 34px; }
-  .chrome { color: var(--ink) !important; }
+  .chrome.is-photo { color: var(--ink); }
   .own { grid-template-columns: 1fr 1fr; }
   .own .mark { height: 84px; }
   .own .mark img { height: 52px; }
@@ -521,9 +592,11 @@ th { font-weight: 500; color: var(--muted); font-size: 13px; letter-spacing: 0.0
   .pillars { height: 180px; }
   h1 { font-size: 40px; max-width: 100%; }
   h2, .lead { max-width: 100%; }
-  .slide { padding: 78px 22px 96px; overflow: auto; }
-  .note { left: 22px; right: 22px; }
-  .slide:has(.calc) .note { position: static; margin: 12px 0 28px; }
-  .top, .bottom { padding-left: 22px; padding-right: 22px; }
-  .navbtns button { width: 40px; height: 40px; }
+  .slide { padding: 78px 22px 108px; overflow: auto; }
+  .top { padding-left: 22px; padding-right: 22px; }
+  .progress { left: 16px; right: 16px; bottom: 12px; }
+  .ticks { justify-content: flex-start; gap: 14px; }
+  .ticks button { flex: 0 0 auto; }
+  .nav-btn { display: none; }
+  .brand { font-size: 30px; }
 }
