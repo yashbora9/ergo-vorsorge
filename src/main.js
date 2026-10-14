@@ -36,6 +36,7 @@ const slides = [
             <h3>Gesetzliche Rente</h3>
             <p class="big">ca. 48 %</p>
             <p>nach 45 Arbeitsjahren</p>
+            <p>Für jedes Jahr, das du früher aufhörst zu arbeiten, gehen 3,6 % dauerhaft ab.</p>
           </article>
           <article>
             <h3>Betriebliche Altersvorsorge</h3>
@@ -48,6 +49,35 @@ const slides = [
           </article>
         </div>
       </div>`
+  },
+  {
+    html: `<p class="kicker">Gesetzliche Rente 2026</p><h2>Nach 45 Jahren bleibt das hier.</h2>
+      <p class="lead">Konstanter Verdienst. Ein Rentenpunkt ist 42,52 € wert. Kranken- und Pflegeversicherung sind abgezogen, Steuern noch nicht.</p>
+      <div class="rent-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Brutto im Monat</th>
+              <th>Punkte im Jahr</th>
+              <th>Punkte nach 45 J.</th>
+              <th>Bruttorente</th>
+              <th>Nettorente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2.000 €</td><td>0,46</td><td>20,8</td><td>885 €</td><td>776 €</td></tr>
+            <tr><td>3.000 €</td><td>0,69</td><td>31,2</td><td>1.325 €</td><td>1.161 €</td></tr>
+            <tr><td>4.000 €</td><td>0,92</td><td>41,6</td><td>1.770 €</td><td>1.552 €</td></tr>
+            <tr class="is-mark"><td>4.329 € Durchschnitt</td><td>1,00</td><td>45,0</td><td>1.913 €</td><td>1.677 €</td></tr>
+            <tr><td>5.000 €</td><td>1,16</td><td>52,0</td><td>2.210 €</td><td>1.937 €</td></tr>
+            <tr><td>6.000 €</td><td>1,39</td><td>62,4</td><td>2.655 €</td><td>2.327 €</td></tr>
+            <tr><td>7.000 €</td><td>1,62</td><td>72,8</td><td>3.095 €</td><td>2.713 €</td></tr>
+            <tr class="is-mark"><td>8.450 € Beitragsgrenze</td><td>1,95</td><td>87,8</td><td>3.735 €</td><td>3.274 €</td></tr>
+            <tr><td>10.000 € gedeckelt</td><td>1,95</td><td>87,8</td><td>3.735 €</td><td>3.274 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src">Deutsche Rentenversicherung, Rechengrößen 2026. Durchschnittsentgelt 51.944 €, Beitragsbemessungsgrenze 8.450 € im Monat. Netto nach 8,75 % Krankenversicherung und 3,6 % Pflege, mit Kindern. Vereinfachtes Modell.</p>`
   },
   {
     example: true,
@@ -205,12 +235,112 @@ const slides = [
     html: `<p class="kicker">03 · Flexibilität</p><h1>Der Plan muss zu deinem Leben passen.</h1>`
   },
   {
-    html: `<p class="kicker">Katalog</p><h2>Vier Fragen. Vier Antworten.</h2>
-      <div class="qa">
-        <details><summary>Pause?</summary><p>Der Beitrag kann ruhen, wenn ein Jahr eng wird. Du steigst nicht aus dem Vertrag aus.</p></details>
-        <details><summary>Erhöhung?</summary><p>Wenn das Gehalt wächst, wächst der Beitrag mit. Einmal im Gespräch festlegen.</p></details>
-        <details><summary>Auszahlung?</summary><p>Zum Laufzeitende als Kapital oder als Rente. Den Weg wählst du dann, nicht heute auf ewig.</p></details>
-        <details><summary>Einmalzuzahlung?</summary><p>Bonus, Erbe, Steuererstattung: extra einzahlen, ohne den Monatsplan zu zerreißen.</p></details>
+    html: `<p class="kicker">Leben</p><h2>Wie ein Chamäleon.</h2>
+      <p class="lead">Es passt sich deinem Leben an.</p>
+      <div class="ask">
+        <details>
+          <summary>Gehalt</summary>
+          <ul>
+            <li>Du kannst den Beitrag erhöhen.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Sonderzahlung</summary>
+          <ul>
+            <li>13. Gehalt, Urlaubs- oder Weihnachtsgeld.</li>
+            <li>Was du nicht brauchst, investierst du in deine Ziele.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Enger Monat</summary>
+          <ul>
+            <li>Du kannst den Monatsbeitrag senken.</li>
+            <li>Besser erst nach fünf Jahren.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Beitrag frei</summary>
+          <ul>
+            <li>Zum Beispiel mit 50 zahlst du nichts mehr ein.</li>
+            <li>Das Geld im Vertrag arbeitet weiter.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Fonds</summary>
+          <ul>
+            <li>Jederzeit in verschiedene Fonds.</li>
+            <li>Kostenlos.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Fünf Jahre</summary>
+          <ul>
+            <li>Senken, entnehmen und pausieren erst danach.</li>
+            <li>Davor leidet das Investment.</li>
+          </ul>
+        </details>
+      </div>`
+  },
+  {
+    html: `<p class="kicker">Kapitalentnahme</p><h2>Kapital entnehmen.</h2>
+      <div class="ask">
+        <details>
+          <summary>Obergrenze?</summary>
+          <ul>
+            <li>Pro Jahr höchstens zweimal.</li>
+            <li>Beim ersten Mal höchstens 25.000 €.</li>
+            <li>Beim zweiten Mal bleiben mindestens 2.500 € im Vertrag.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Vor der Rente?</summary>
+          <ul>
+            <li>Ja, auch vor dem Renteneintritt.</li>
+            <li>Zum Beispiel für Auto oder Immobilie.</li>
+            <li>In zehn oder fünfzehn Jahren.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Wann wieder?</summary>
+          <ul>
+            <li>Höchstens zweimal im Jahr.</li>
+            <li>Erst nach fünf Jahren entnehmen.</li>
+          </ul>
+        </details>
+      </div>`
+  },
+  {
+    html: `<p class="kicker">Pause</p><h2>Pause.</h2>
+      <div class="ask">
+        <details>
+          <summary>Wie lange?</summary>
+          <ul>
+            <li>24 Monate über die ganze Laufzeit.</li>
+            <li>In der Elternzeit 36 Monate.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Verlängern?</summary>
+          <ul>
+            <li>Nach 24 Monaten nicht.</li>
+            <li>In der Elternzeit bis 36 Monate.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Nochmal?</summary>
+          <ul>
+            <li>Nach dem Ende mindestens ein Jahr warten.</li>
+            <li>Nicht direkt an die letzte Pause anschließen.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Kein Storno?</summary>
+          <ul>
+            <li>Eine Pause zählt sonst als Storno.</li>
+            <li>Nicht, wenn du erst nach fünf Jahren pausierst.</li>
+            <li>Oder nach zwölf gezahlten Monaten, für drei Monate.</li>
+          </ul>
+        </details>
       </div>`
   },
   {
@@ -220,32 +350,39 @@ const slides = [
   },
   {
     html: `<p class="kicker">Sicherheit · ERGO Group 2025</p><h2>Große Zahlen. Mit Quelle.</h2>
-      <div class="grid four">
-        <div class="card"><div class="num">21,7</div><p>Mrd. € Versicherungsumsatz</p></div>
-        <div class="card"><div class="num">136</div><p>Mrd. € Kapitalanlagen</p></div>
-        <div class="card"><div class="num">917</div><p>Mio. € Konzernergebnis</p></div>
-        <div class="card"><div class="num">28k</div><p>angestellte Mitarbeiter, dazu 8.276 Vermittler</p></div>
+      <div class="grid facts">
+        <div class="card"><div class="num">1899</div><p>Hamburg-Mannheimer. Die Linie. ERGO ab 1997.</p></div>
+        <div class="card"><div class="num word">Deutschland</div><p>Keine eigene Kundenzahl veröffentlicht.</p></div>
+        <div class="card"><div class="num">33</div><p>Mio. Kunden weltweit.</p></div>
+        <div class="card"><div class="num">256 %</div><p>Solvenzquote. ERGO Leben, 2025.</p></div>
+        <div class="card"><div class="num">21,7</div><p>Mrd. € Umsatz 2025.</p></div>
+        <div class="card"><div class="num word">Munich Re</div><p>Dahinter. Seit 2001 alleinige Eigentümerin.</p></div>
       </div>
-      <p class="src">Quelle: ergo.com, Zahlen, Daten und Fakten, Geschäftsjahr 2025 (Umsatz 2024: 20,8 Mrd. €). Eine Insolvenzquote in Prozent veröffentlicht ERGO dort nicht. Deutsche Lebensversicherer stehen zusätzlich unter dem Schutzschirm Protektor. Munich Re ist alleinige Eigentümerin der ERGO Group AG (Geschäftsbericht ERGO Group AG 2024).</p>`
+      <p class="src">1899 Vita in Mannheim, ab 1912 Hamburg-Mannheimer, ERGO ab 1997. 33 Mio. Kunden weltweit, ergo.com. Deutschland ohne eigene Kundenzahl. Solvenz 256 % (ohne Maßnahmen 186 %), SFCR 2025 ERGO Leben. Umsatz 21,7, Anlagen 135,8 Mrd. €.</p>`
   },
   {
-    html: `<div class="side">
-        <img src="${base}stadion.jpg" alt="Ein leeres Stadionmodell, ohne Personen und ohne Schrift">
-        <div>
-          <p class="kicker">Partnerschaft</p><h2>Inter Miami. Messi spielt dort.</h2>
-          <p class="lead">Am 17. Januar 2026 hat ERGO eine mehrjährige Partnerschaft mit Inter Miami CF bekannt gegeben. Lionel Messi ist Kapitän des Vereins. Das ist ein Sponsoring der Marke, kein Zitat für deine Rente.</p>
-          <p class="src">Quelle: ERGO Medieninformation, 17. Januar 2026. Ein zweites Gesicht kommt auf diese Folie, sobald du Bild und Namen freigibst.</p>
+    html: `<p class="kicker">Eigentum · seit 2001</p><h2>Hamburg, ERGO und Munich Re.</h2>
+      <div class="hold">
+        <div class="hold-parent">
+          <p class="hold-role">Muttergesellschaft · DAX</p>
+          <h3>Munich Re</h3>
+          <p class="hold-note">Kümmert sich um ERGO. Alleinige Eigentümerin.</p>
+          <div class="hold-stem" aria-hidden="true"><span>100 %</span></div>
+          <article class="hold-child">
+            <p class="hold-role">Tochtergesellschaft</p>
+            <h3>ERGO</h3>
+            <p class="hold-note">Die Versicherungsgruppe.</p>
+            <div class="hold-root">
+              <b>1899</b>
+              <div>
+                <strong>Hamburg-Mannheimer</strong>
+                <span>Die Linie. Heute in ERGO.</span>
+              </div>
+            </div>
+          </article>
         </div>
-      </div>`
-  },
-  {
-    html: `<div class="side">
-        <img src="${base}rueck.jpg" alt="Ein großes Haus steht hinter einem kleinen">
-        <div>
-          <p class="kicker">Munich Re</p><h2>Hinter ERGO steht der große Rückversicherer.</h2>
-          <p class="lead">Die Münchener Rück ist alleinige Anteilseignerin der ERGO Group AG und ein Unternehmen im DAX. ERGO selbst ist nicht „der DAX“. Jemand steht hinter dem Versprechen, wenn Schäden groß werden.</p>
-        </div>
-      </div>`
+      </div>
+      <p class="src">Munich Re hält die ERGO Group AG seit 2001 allein. ergo.com, Historie. Hamburg-Mannheimer: 1899 als Vita in Mannheim, ab 1912 unter diesem Namen.</p>`
   },
   {
     html: `<p class="kicker">Überschussbeteiligung</p><h2>Der Topf ist nicht starr.</h2>
@@ -303,8 +440,8 @@ const slides = [
     photo: true,
     image: 'schluessel.jpg',
     html: `<p class="kicker">Immobilie</p><h2>Später kann aus der Police Eigenkapital werden.</h2>
-      <p class="lead">Zum Wohnungskauf lässt sich angespartes Kapital auszahlen. Den Weg legst du fest, wenn der Kauf konkret ist.</p>
-      <p class="src">Kein Kreditversprechen. Der genaue Mechanismus kommt noch dazu.</p>`
+      <p class="lead">Zum Wohnungskauf lässt sich Kapital auszahlen. Zweimal im Jahr. Das erste Mal höchstens 25.000 €. Beim zweiten Mal bleiben 2.500 €.</p>
+      <p class="src">Kein Kreditversprechen.</p>`
   },
   {
     dark: true,
@@ -431,7 +568,9 @@ window.addEventListener('keydown', (e) => {
 
 let wheelLock = false
 window.addEventListener('wheel', (e) => {
-  if (e.target.closest('input, textarea, .calc, .play, .progress, .nav-btn')) return
+  if (e.target.closest('input, textarea, .calc, .play, .progress, .nav-btn, .rent-wrap')) return
+  const askSlide = e.target.closest('.ask')?.closest('.slide')
+  if (askSlide && askSlide.scrollHeight > askSlide.clientHeight + 4) return
   if (wheelLock || Math.abs(e.deltaY) < 20) return
   wheelLock = true
   show(index + (e.deltaY > 0 ? 1 : -1))
