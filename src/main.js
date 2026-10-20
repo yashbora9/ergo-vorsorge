@@ -109,30 +109,6 @@ const slides = [
     html: `<p class="kicker">02 · ETFs</p><h1>Warum ein ETF, und nicht Gold, Immobilien und Krypto?</h1>`
   },
   {
-    html: `<p class="kicker">Alltag</p><h2>Du kaufst schon Aktien. Nur ohne Gewinn.</h2>
-      <div class="own">
-        <article style="--c:#1d1d1f;--on:#f4efe8"><div class="mark"><img src="${base}logos/apple.svg" alt=""></div><div><b>iPhone</b><span>Apple</span></div></article>
-        <article style="--c:#128c7e;--on:#f4efe8"><div class="mark"><img src="${base}logos/whatsapp.svg" alt=""></div><div><b>WhatsApp</b><span>Meta</span></div></article>
-        <article class="rainbow" style="--c:#fff;--on:#1b1412"><div class="mark duo"><img src="${base}logos/google.svg" alt=""><img src="${base}logos/youtube.svg" alt=""></div><div><b>Google, YouTube</b><span>Alphabet</span></div></article>
-        <article style="--c:#1db954;--on:#0e1a12"><div class="mark"><img src="${base}logos/spotify.svg" alt=""></div><div><b>Spotify</b><span>Spotify</span></div></article>
-        <article style="--c:#e50914;--on:#f4efe8"><div class="mark"><img src="${base}logos/netflix.svg" alt=""></div><div><b>Netflix</b><span>Netflix</span></div></article>
-        <article class="amz" style="--c:#232f3e;--on:#f4efe8"><div class="mark"><img src="${base}logos/amazon.svg" alt=""></div><div><b>Amazon-Paket</b><span>Amazon</span></div></article>
-        <article style="--c:#111;--on:#f4efe8"><div class="mark"><img src="${base}logos/adidas.svg" alt=""></div><div><b>Adidas</b><span>Adidas</span></div></article>
-        <article style="--c:#f7f4ef;--on:#111"><div class="mark"><img src="${base}logos/nike.svg" alt=""></div><div><b>Nike</b><span>Nike</span></div></article>
-        <article style="--c:#1a1a1a;--on:#f4efe8"><div class="mark"><img src="${base}logos/puma.svg" alt=""></div><div><b>Puma</b><span>Puma</span></div></article>
-        <article style="--c:#3d4c5c;--on:#f4efe8"><div class="mark trio"><img src="${base}logos/vw.svg" alt=""><img src="${base}logos/mercedes.svg" alt=""><img src="${base}logos/bmw.svg" alt=""></div><div><b>VW, Mercedes, BMW</b><span>die drei Konzerne</span></div></article>
-        <article style="--c:#e20074;--on:#f4efe8"><div class="mark"><img src="${base}logos/telekom.svg" alt=""></div><div><b>Telekom-Vertrag</b><span>Deutsche Telekom</span></div></article>
-        <article style="--c:#1a1f71;--on:#f4efe8"><div class="mark duo"><img src="${base}logos/visa.svg" alt=""><img src="${base}logos/paypal.svg" alt=""></div><div><b>Visa, PayPal</b><span>beim Bezahlen</span></div></article>
-        <article style="--c:#0033a0;--on:#f4efe8"><div class="mark"><img src="${base}logos/nivea.svg" alt=""></div><div><b>Nivea</b><span>Beiersdorf</span></div></article>
-        <article style="--c:#e7f6ec;--on:#0d6b32"><div class="mark"><img src="${base}logos/persil.svg" alt=""></div><div><b>Persil</b><span>Henkel</span></div></article>
-        <article style="--c:#5c2d91;--on:#f4efe8"><div class="mark"><img src="${base}logos/milka.svg" alt=""></div><div><b>Milka</b><span>Mondelez</span></div></article>
-        <article style="--c:#8c2f1b;--on:#f4efe8"><div class="mark duo"><img src="${base}logos/kitkat.svg" alt=""><img src="${base}logos/maggi.svg" alt=""></div><div><b>KitKat, Maggi</b><span>Nestlé</span></div></article>
-        <article style="--c:#f3ead7;--on:#6b4e24"><div class="mark duo"><img src="${base}logos/dove.svg" alt=""><img src="${base}logos/knorr.svg" alt=""></div><div><b>Dove, Knorr</b><span>Unilever</span></div></article>
-        <article style="--c:#003da5;--on:#f4efe8"><div class="mark duo"><img src="${base}logos/gillette.svg" alt=""><img src="${base}logos/pg.svg" alt=""></div><div><b>Gillette, Ariel</b><span>Procter &amp; Gamble</span></div></article>
-      </div>
-      <p class="lead">Fast jeder hat davon mehrere zu Hause. Du zahlst. Die Aktie gehört jemand anderem. Ein ETF sammelt genau solche Firmen.</p>`
-  },
-  {
     html: `<p class="kicker">Der Nachteil</p><h2>Vier Wege. Pro und Contra.</h2>
       <div class="ways">
         <article class="way lean">
@@ -188,6 +164,30 @@ const slides = [
           </table>
         </article>
       </div>`
+  },
+  {
+    html: `<p class="kicker">Alltag</p><h2>Du kaufst schon Aktien. Nur ohne Gewinn.</h2>
+      <div class="own">
+        <article style="--c:#1d1d1f;--on:#f4efe8"><div class="mark"><img src="${base}logos/apple.svg" alt=""></div><div><b>iPhone</b><span>Apple</span></div></article>
+        <article style="--c:#128c7e;--on:#f4efe8"><div class="mark"><img src="${base}logos/whatsapp.svg" alt=""></div><div><b>WhatsApp</b><span>Meta</span></div></article>
+        <article class="rainbow" style="--c:#fff;--on:#1b1412"><div class="mark duo"><img src="${base}logos/google.svg" alt=""><img src="${base}logos/youtube.svg" alt=""></div><div><b>Google, YouTube</b><span>Alphabet</span></div></article>
+        <article style="--c:#1db954;--on:#0e1a12"><div class="mark"><img src="${base}logos/spotify.svg" alt=""></div><div><b>Spotify</b><span>Spotify</span></div></article>
+        <article style="--c:#e50914;--on:#f4efe8"><div class="mark"><img src="${base}logos/netflix.svg" alt=""></div><div><b>Netflix</b><span>Netflix</span></div></article>
+        <article class="amz" style="--c:#232f3e;--on:#f4efe8"><div class="mark"><img src="${base}logos/amazon.svg" alt=""></div><div><b>Amazon-Paket</b><span>Amazon</span></div></article>
+        <article style="--c:#111;--on:#f4efe8"><div class="mark"><img src="${base}logos/adidas.svg" alt=""></div><div><b>Adidas</b><span>Adidas</span></div></article>
+        <article style="--c:#f7f4ef;--on:#111"><div class="mark"><img src="${base}logos/nike.svg" alt=""></div><div><b>Nike</b><span>Nike</span></div></article>
+        <article style="--c:#1a1a1a;--on:#f4efe8"><div class="mark"><img src="${base}logos/puma.svg" alt=""></div><div><b>Puma</b><span>Puma</span></div></article>
+        <article style="--c:#3d4c5c;--on:#f4efe8"><div class="mark trio"><img src="${base}logos/vw.svg" alt=""><img src="${base}logos/mercedes.svg" alt=""><img src="${base}logos/bmw.svg" alt=""></div><div><b>VW, Mercedes, BMW</b><span>die drei Konzerne</span></div></article>
+        <article style="--c:#e20074;--on:#f4efe8"><div class="mark"><img src="${base}logos/telekom.svg" alt=""></div><div><b>Telekom-Vertrag</b><span>Deutsche Telekom</span></div></article>
+        <article style="--c:#1a1f71;--on:#f4efe8"><div class="mark duo"><img src="${base}logos/visa.svg" alt=""><img src="${base}logos/paypal.svg" alt=""></div><div><b>Visa, PayPal</b><span>beim Bezahlen</span></div></article>
+        <article style="--c:#0033a0;--on:#f4efe8"><div class="mark"><img src="${base}logos/nivea.svg" alt=""></div><div><b>Nivea</b><span>Beiersdorf</span></div></article>
+        <article style="--c:#e7f6ec;--on:#0d6b32"><div class="mark"><img src="${base}logos/persil.svg" alt=""></div><div><b>Persil</b><span>Henkel</span></div></article>
+        <article style="--c:#5c2d91;--on:#f4efe8"><div class="mark"><img src="${base}logos/milka.svg" alt=""></div><div><b>Milka</b><span>Mondelez</span></div></article>
+        <article style="--c:#8c2f1b;--on:#f4efe8"><div class="mark duo"><img src="${base}logos/kitkat.svg" alt=""><img src="${base}logos/maggi.svg" alt=""></div><div><b>KitKat, Maggi</b><span>Nestlé</span></div></article>
+        <article style="--c:#f3ead7;--on:#6b4e24"><div class="mark duo"><img src="${base}logos/dove.svg" alt=""><img src="${base}logos/knorr.svg" alt=""></div><div><b>Dove, Knorr</b><span>Unilever</span></div></article>
+        <article style="--c:#003da5;--on:#f4efe8"><div class="mark duo"><img src="${base}logos/gillette.svg" alt=""><img src="${base}logos/pg.svg" alt=""></div><div><b>Gillette, Ariel</b><span>Procter &amp; Gamble</span></div></article>
+      </div>
+      <p class="lead">Fast jeder hat davon mehrere zu Hause. Du zahlst. Die Aktie gehört jemand anderem. Ein ETF sammelt genau solche Firmen.</p>`
   },
   {
     example: true,
@@ -351,14 +351,14 @@ const slides = [
   {
     html: `<p class="kicker">Sicherheit · ERGO Group 2025</p><h2>Große Zahlen. Mit Quelle.</h2>
       <div class="grid facts">
-        <div class="card"><div class="num">1899</div><p>Hamburg-Mannheimer. Die Linie. ERGO ab 1997.</p></div>
-        <div class="card"><div class="num word">Deutschland</div><p>Keine eigene Kundenzahl veröffentlicht.</p></div>
+        <div class="card"><div class="num years">100 Jahre</div><p>Mehr als 100 Jahre Erfahrung. Die Linie seit 1899.</p></div>
+        <div class="card"><div class="num">> 20</div><p>Mio. Kunden in Deutschland.</p></div>
         <div class="card"><div class="num">33</div><p>Mio. Kunden weltweit.</p></div>
-        <div class="card"><div class="num">256 %</div><p>Solvenzquote. ERGO Leben, 2025.</p></div>
+        <div class="card"><div class="num">613 %</div><p>Solvenzquote. ERGO Vorsorge, ohne Übergangs&shy;maßnahmen. Stand 22.11.2024.</p></div>
         <div class="card"><div class="num">21,7</div><p>Mrd. € Umsatz 2025.</p></div>
         <div class="card"><div class="num word">Munich Re</div><p>Dahinter. Seit 2001 alleinige Eigentümerin.</p></div>
       </div>
-      <p class="src">1899 Vita in Mannheim, ab 1912 Hamburg-Mannheimer, ERGO ab 1997. 33 Mio. Kunden weltweit, ergo.com. Deutschland ohne eigene Kundenzahl. Solvenz 256 % (ohne Maßnahmen 186 %), SFCR 2025 ERGO Leben. Umsatz 21,7, Anlagen 135,8 Mrd. €.</p>`
+      <p class="src">1899 Vita in Mannheim, ab 1912 Hamburg-Mannheimer, ERGO ab 1997. 33 Mio. Kunden weltweit, ergo.com. Deutschland mehr als 20 Mio. Kunden. ERGO Vorsorge 613 % ohne Übergangsmaßnahmen, Medieninformation 22.11.2024. Umsatz 21,7, Anlagen 135,8 Mrd. €.</p>`
   },
   {
     html: `<p class="kicker">Eigentum · seit 2001</p><h2>Hamburg, ERGO und Munich Re.</h2>
@@ -383,6 +383,53 @@ const slides = [
         </div>
       </div>
       <p class="src">Munich Re hält die ERGO Group AG seit 2001 allein. ergo.com, Historie. Hamburg-Mannheimer: 1899 als Vita in Mannheim, ab 1912 unter diesem Namen.</p>`
+  },
+  {
+    html: `<p class="kicker">Rückversicherung · DAX</p><h2>Die größte der Welt.</h2>
+      <p class="dax-key">Platz 1 der Rückversicherer. Im DAX Platz 8 von 40. Die Prozentzahl ist der Anteil am Index.</p>
+      <ol class="dax-all">
+        <li><span>Siemens</span><b>11,64 %</b></li>
+        <li><span>SAP</span><b>11,42 %</b></li>
+        <li><span>Allianz</span><b>9,35 %</b></li>
+        <li><span>Siemens Energy</span><b>6,72 %</b></li>
+        <li><span>Airbus</span><b>6,46 %</b></li>
+        <li><span>Deutsche Telekom</span><b>5,05 %</b></li>
+        <li><span>Infineon</span><b>4,17 %</b></li>
+        <li class="is-mr"><span>Munich Re</span><b>3,91 %</b></li>
+        <li><span>Deutsche Börse</span><b>3,26 %</b></li>
+        <li><span>Deutsche Bank</span><b>3,26 %</b></li>
+        <li><span>DHL</span><b>3,10 %</b></li>
+        <li><span>BASF</span><b>2,70 %</b></li>
+        <li><span>Rheinmetall</span><b>2,65 %</b></li>
+        <li><span>Bayer</span><b>2,55 %</b></li>
+        <li><span>RWE</span><b>2,39 %</b></li>
+        <li><span>E.ON</span><b>2,24 %</b></li>
+        <li><span>Mercedes-Benz</span><b>1,64 %</b></li>
+        <li><span>Adidas</span><b>1,60 %</b></li>
+        <li><span>Daimler Truck</span><b>1,22 %</b></li>
+        <li><span>MTU</span><b>1,11 %</b></li>
+        <li><span>Merck</span><b>1,06 %</b></li>
+        <li><span>BMW</span><b>1,06 %</b></li>
+        <li><span>Fresenius</span><b>1,03 %</b></li>
+        <li><span>Heidelberg Materials</span><b>1,02 %</b></li>
+        <li><span>Hannover Rück</span><b>0,93 %</b></li>
+        <li><span>Commerzbank</span><b>0,88 %</b></li>
+        <li><span>Siemens Healthineers</span><b>0,86 %</b></li>
+        <li><span>Volkswagen</span><b>0,80 %</b></li>
+        <li><span>Symrise</span><b>0,74 %</b></li>
+        <li><span>Vonovia</span><b>0,70 %</b></li>
+        <li><span>Henkel</span><b>0,67 %</b></li>
+        <li><span>GEA</span><b>0,60 %</b></li>
+        <li><span>Qiagen</span><b>0,49 %</b></li>
+        <li><span>Fresenius Medical Care</span><b>0,45 %</b></li>
+        <li><span>Continental</span><b>0,44 %</b></li>
+        <li><span>Brenntag</span><b>0,43 %</b></li>
+        <li><span>Beiersdorf</span><b>0,41 %</b></li>
+        <li><span>Hochtief</span><b>0,38 %</b></li>
+        <li><span>Zalando</span><b>0,31 %</b></li>
+        <li><span>Scout24</span><b>0,29 %</b></li>
+      </ol>
+      <p class="src">Platz 1 der Top 50 Rückversicherungskonzerne nach gebuchten Bruttobeiträgen, A.M. Best, seit 2010 außer 2017. munichre.com, Fakten und Zahlen. DAX-Reihenfolge und Anteile: Indexzusammensetzung Deka DAX UCITS ETF, Stand 15.10.2026. Der Anteil ist das Indexgewicht. Der Platz folgt der Börse.</p>`
   },
   {
     html: `<p class="kicker">Überschussbeteiligung</p><h2>Der Topf ist nicht starr.</h2>

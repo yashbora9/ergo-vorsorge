@@ -175,10 +175,18 @@ h2 {
 }
 .own article.amz { box-shadow: inset 4px 0 0 #ff9900; }
 .grid.four { grid-template-columns: repeat(4, 1fr); }
-.facts { grid-template-columns: repeat(3, 1fr); margin-top: 16px; }
-.facts .card { min-height: 0; padding: 16px 16px 14px; }
-.facts .num { font-size: clamp(32px, 3vw, 46px); }
+.slide:has(.facts) .kicker { margin-bottom: 10px; }
+.slide:has(.facts) h2 { font-size: clamp(30px, 3.8vw, 56px); margin-bottom: 8px; }
+.slide:has(.facts) .src { margin-top: 12px; max-width: 92ch; }
+.facts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+.facts .card { min-height: 0; padding: 14px 16px 12px; }
+.facts .num { font-size: clamp(30px, 2.8vw, 42px); }
 .facts .num.word { font-size: clamp(22px, 2.2vw, 34px); letter-spacing: -0.03em; }
+.facts .num.years { font-size: clamp(28px, 2.8vw, 40px); letter-spacing: -0.03em; white-space: nowrap; }
+.facts .card p { font-size: 15px; overflow-wrap: break-word; }
+@media (min-width: 801px) {
+  .facts .card:last-child:nth-child(3n + 1) { grid-column: 2; }
+}
 .slide:has(.hold) h2 { max-width: 14ch; margin-bottom: 12px; }
 .hold { width: min(1040px, 100%); margin-top: 4px; }
 .hold-parent {
@@ -265,6 +273,43 @@ h2 {
 }
 .hold-root span { display: block; margin-top: 2px; color: var(--muted); font-size: 15px; }
 .slide:has(.hold) .src { margin-top: 14px; }
+.slide:has(.dax-all) h2 { max-width: 16ch; margin-bottom: 6px; font-size: clamp(30px, 3.6vw, 48px); }
+.slide:has(.dax-all) .src { margin-top: 10px; max-width: 92ch; }
+.dax-key { margin: 0 0 8px; font-size: 15px; color: var(--muted); max-width: 70ch; }
+.dax-all {
+  list-style: none;
+  margin: 0;
+  padding: 8px 10px;
+  width: min(1100px, 100%);
+  display: grid;
+  grid-template-rows: repeat(10, auto);
+  grid-auto-flow: column;
+  gap: 3px 18px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  counter-reset: dax;
+}
+.dax-all li {
+  counter-increment: dax;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 13px;
+  line-height: 1.25;
+  padding: 2px 6px;
+  border-radius: 7px;
+}
+.dax-all li::before {
+  content: counter(dax);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.dax-all span { min-width: 0; }
+.dax-all b { font-weight: 560; font-variant-numeric: tabular-nums; }
+.dax-all .is-mr { background: var(--wine); color: var(--cream); }
+.dax-all .is-mr::before { color: var(--gold); }
 .slide:has(.ways) h2 { font-size: clamp(32px, 3.6vw, 52px); margin-bottom: 8px; }
 .ways { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
 .way { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
@@ -729,13 +774,24 @@ th { font-weight: 500; color: var(--muted); font-size: 13px; letter-spacing: 0.0
 
 @media (max-width: 800px) {
   .grid.two, .grid.three, .grid.four, .qa, .ask, .pyras, .py-compare, .house-cols, .calc, .calc-nums, .pair, .side, .ways, .carry { grid-template-columns: 1fr; }
-  .facts { grid-template-columns: 1fr 1fr; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .slide:has(.facts) h2 { font-size: 32px; margin-bottom: 6px; }
+  .slide:has(.facts) .kicker { margin-bottom: 6px; }
+  .facts .card { padding: 10px 12px 10px; }
+  .facts .card p { font-size: 13px; }
+  .facts .num { font-size: 28px; }
+  .facts .num.years { font-size: 24px; }
+  .slide:has(.facts) .src { margin-top: 8px; font-size: 12px; }
   .hold-parent { padding: 18px 14px 14px; border-radius: 24px; }
   .hold-child { margin: 0; padding: 16px 14px 12px; }
   .hold-root { gap: 12px; }
   .hold-root b { font-size: 26px; }
   .hold-root strong { font-size: 18px; }
   .hold-parent > .hold-note, .hold-child .hold-note { font-size: 15px; }
+  .slide:has(.dax-all) h2 { font-size: 30px; }
+  .dax-key { font-size: 13px; }
+  .dax-all { grid-template-rows: repeat(20, auto); gap: 2px 10px; padding: 8px; }
+  .dax-all li { font-size: 11px; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 4px; padding: 1px 3px; }
   .spar-row b { font-size: 22px; }
   .play-bar { flex-wrap: wrap; }
   .pair img, .side img, .wide { height: 200px; }
